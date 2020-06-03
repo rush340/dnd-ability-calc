@@ -1,4 +1,3 @@
-// TODO camelCase var names
 // TODO refactor
 
 import React from 'react';
@@ -47,6 +46,7 @@ function getAbilityModifier(score) {
 
 function AbilityChangeControl(props) {
   const label = props.increase ? 'Increase' : 'Decrease';
+  // TODO button should also be disabled if there are insufficient remaining points
   const disabled = props.cost === null;
   // we show a minus for positive costs because we're conveying the effect
   // on the remaining point value
@@ -148,27 +148,27 @@ class App extends React.Component {
   }
 
   addToAbility(ability, value) {
-    const old_value = this.state.abilities[ability];
-    const new_value = old_value + value;
+    const oldValue = this.state.abilities[ability];
+    const newValue = oldValue + value;
 
-    if (COST_TABLE[new_value] === undefined) {
+    if (COST_TABLE[newValue] === undefined) {
       // the new value is not allowed
       return;
     }
 
-    const change_cost = COST_TABLE[new_value] - COST_TABLE[old_value];
-    if (change_cost > this.state.points) {
+    const changeCost = COST_TABLE[newValue] - COST_TABLE[oldValue];
+    if (changeCost > this.state.points) {
       // there are not enough points remaining for this change
       return;
     }
 
-    const updated_points = this.state.points - change_cost;
-    const updated_ability = {
+    const updatedPoints = this.state.points - changeCost;
+    const updatedAbility = {
       [ability]: this.state.abilities[ability] + value,
     };
     this.setState({
-      points: updated_points,
-      abilities: Object.assign({}, this.state.abilities, updated_ability),
+      points: updatedPoints,
+      abilities: Object.assign({}, this.state.abilities, updatedAbility),
     });
   }
 
