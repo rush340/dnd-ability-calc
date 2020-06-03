@@ -1,1 +1,25 @@
+.abilities-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-items: left;
+}
 
+.ability {
+}
+
+.ability-name {
+  text-transform: capitalize;
+}
+
+.ability-change-control {
+  padding: 30px;
+  width: 100%;
+}
+
+.points-container {
+  margin-bottom: 10px;
+}
+
+.points {
+  font-size: 2em;
+}

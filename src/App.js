@@ -57,6 +57,7 @@ function AbilityChangeControl(props) {
   return (
     <div>
       <button
+        className="ability-change-control"
         onClick={props.onClick}
         disabled={disabled}
       >
@@ -66,11 +67,17 @@ function AbilityChangeControl(props) {
   );
 }
 
+function getAbilityModifierString(score) {
+  const modifier = getAbilityModifier(score);
+  const plusOrMinus = modifier >= 0 ? '+' : '-';
+  return `${plusOrMinus}${Math.abs(modifier)}`;
+}
+
 function Ability(props) {
-  const modifier = getAbilityModifier(props.score);
+  const modifier = getAbilityModifierString(props.score);
   return (
-    <div>
-      <div><strong>{props.name}</strong></div>
+    <div className="ability">
+      <div className="ability-name"><strong>{props.name}</strong></div>
       <div>Score: {props.score}</div>
       <div>Modifier: {modifier}</div>
       <AbilityChangeControl
@@ -86,6 +93,47 @@ function Ability(props) {
     </div>
   );
 }
+
+function Abilities(props) {
+  const abilities = [];
+  for (let [ability, score] of Object.entries(props.abilityScores)) {
+    const increaseClick = () => props.increaseAbility(ability);
+    const decreaseClick = () => props.decreaseAbility(ability);
+
+    const increaseCost = COST_TABLE[score + 1] === undefined ?
+      null :
+      COST_TABLE[score + 1] - COST_TABLE[score];
+    const decreaseCost = COST_TABLE[score - 1] === undefined ?
+      null :
+      COST_TABLE[score - 1] - COST_TABLE[score];
+    abilities.push(<Ability
+      key={ability}
+      name={ability}
+      score={score}
+      increaseClick={increaseClick}
+      decreaseClick={decreaseClick}
+      increaseCost={increaseCost}
+      decreaseCost={decreaseCost}
+    />);
+  }
+
+  return (
+    <div className="abilities-container">
+      {abilities}
+    </div>
+  );
+
+}
+
+function Points(props) {
+  return (
+    <div className="points-container">
+      <div><strong>Remaining points:</strong></div>
+      <div className="points">{props.remaining} / {props.max}</div>
+    </div>
+  );
+}
+
 
 class App extends React.Component {
   constructor(props) {
@@ -133,36 +181,18 @@ class App extends React.Component {
   }
 
   render() {
-    const abilities = [];
-    for (let [ability, score] of Object.entries(this.state.abilities)) {
-      const increaseClick = () => this.increaseAbility(ability);
-      const decreaseClick = () => this.decreaseAbility(ability);
-
-      const increaseCost = COST_TABLE[score + 1] === undefined ?
-        null :
-        COST_TABLE[score + 1] - COST_TABLE[score];
-      const decreaseCost = COST_TABLE[score - 1] === undefined ?
-        null :
-        COST_TABLE[score - 1] - COST_TABLE[score];
-      abilities.push(<Ability
-        key={ability}
-        name={ability}
-        score={score}
-        increaseClick={increaseClick}
-        decreaseClick={decreaseClick}
-        increaseCost={increaseCost}
-        decreaseCost={decreaseCost}
-      />);
-      // TODO remove this once there's css
-      abilities.push(<br />);
-    }
-
     return (
       <div>
         <h1>D&amp;D 5e Point Buy Calculator</h1>
-        <div><strong>Remaining points:</strong> {this.state.points}</div>
-        <br />
-        {abilities}
+        <Points
+          remaining={this.state.points}
+          max={DEFAULT_INITIAL_POINTS}
+        />
+        <Abilities
+          abilityScores={this.state.abilities}
+          increaseAbility={this.increaseAbility}
+          decreaseAbility={this.decreaseAbility}
+        />
       </div>
     );
   }

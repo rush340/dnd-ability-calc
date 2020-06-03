@@ -1,6 +1,6 @@
 # D&D 5e Point Buy Calculator
 
-An ability score Point Buy calculator for Dungeons & Dragons 5th edition.
+An ability score Point Buy calculator for character creation in Dungeons & Dragons 5th edition.
 
 Currently a work in progress.
 
@@ -13,7 +13,8 @@ I plan to add a feature for defining extended point buy tables such that a DM ca
 
 - camelCase var names
 - refactor (it's all in one file right now)
-- styling
+- styling (responsive)
+- show a '+' on positive modifiers
 - usability improvements
     - convey to user that incr/decr not allowed because score is at min/max allowed value
     - convey to user that incr/decr not allowed because of insufficient points
