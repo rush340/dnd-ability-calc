@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "376e75e79ade6dcc91dde09c415974ea",
+    "revision": "cc45c37ae6bf05ffba1b89000a334a59",
     "url": "/dnd-ability-calc/index.html"
   },
   {
