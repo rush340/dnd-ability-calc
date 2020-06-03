@@ -1,12 +1,12 @@
-# D&D Point Buy Calculator
+# D&D 5e Point Buy Calculator
 
-An ability score Point Buy calculator for D&D 5e.
+An ability score Point Buy calculator for Dungeons & Dragons 5th edition.
 
 Currently a work in progress.
 
 Try it out it [here](https://rush340.github.io/dnd-ability-calc)
 
-I plan to add the ability to define extended point buy tables such that a DM can send a link to the calculator with the custom table to their players.
+I plan to add a feature for defining extended point buy tables such that a DM can send a link to the calculator configured with their own custom table to their players.
 
 
 ## TODO
