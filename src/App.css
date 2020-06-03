@@ -11,9 +11,9 @@
   text-transform: capitalize;
 }
 
-.ability-change-control {
-  padding: 30px;
-  width: 100%;
+.ability-change-control button {
+  width: 150px;
+  height: 75px;
 }
 
 .points-container {

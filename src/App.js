@@ -46,22 +46,21 @@ function getAbilityModifier(score) {
 
 function AbilityChangeControl(props) {
   const label = props.increase ? 'Increase' : 'Decrease';
-  // TODO button should also be disabled if there are insufficient remaining points
-  const disabled = props.cost === null;
+
   // we show a minus for positive costs because we're conveying the effect
   // on the remaining point value
   const plusOrMinus = props.cost >= 0 ? '-' : '+';
-  const costLabel = disabled ?
+  const costLabel = props.disabled ?
     '' :
     `(${plusOrMinus}${Math.abs(props.cost)} point${Math.abs(props.cost) > 1 ? 's' : ''})`;
   return (
-    <div>
+    <div className="ability-change-control">
       <button
-        className="ability-change-control"
         onClick={props.onClick}
-        disabled={disabled}
+        disabled={props.disabled}
       >
-        {label} {costLabel}
+        {label}<br />
+        {costLabel}
       </button>
     </div>
   );
@@ -84,11 +83,13 @@ function Ability(props) {
         increase={true}
         onClick={props.increaseClick}
         cost={props.increaseCost}
+        disabled={!props.canIncrease}
       />
       <AbilityChangeControl
         increase={false}
         onClick={props.decreaseClick}
         cost={props.decreaseCost}
+        disabled={!props.canDecrease}
       />
     </div>
   );
@@ -114,6 +115,8 @@ function Abilities(props) {
       decreaseClick={decreaseClick}
       increaseCost={increaseCost}
       decreaseCost={decreaseCost}
+      canIncrease={increaseCost !== null && increaseCost <= props.points}
+      canDecrease={decreaseCost !== null}
     />);
   }
 
@@ -192,6 +195,7 @@ class App extends React.Component {
           abilityScores={this.state.abilities}
           increaseAbility={this.increaseAbility}
           decreaseAbility={this.decreaseAbility}
+          points={this.state.points}
         />
       </div>
     );
