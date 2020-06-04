@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// disable double tap zoom
+document.getElementById('root').addEventListener('click', event => {});
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
