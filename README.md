@@ -11,9 +11,12 @@ I plan to add a feature for defining extended point buy tables such that a DM ca
 
 ## TODO
 
+- get this TODO list out of the README
 - refactor (it's all in one file right now)
 - styling (responsive)
+- reset button
 - usability improvements
+    - prevent selection of button text (mobile sometimes highlights the text when clicking)
     - convey to user that incr/decr not allowed because score is at min/max allowed value
     - convey to user that incr/decr not allowed because of insufficient points
     - maybe a blurb about what this thing is
