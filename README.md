@@ -13,7 +13,6 @@ I plan to add a feature for defining extended point buy tables such that a DM ca
 
 - refactor (it's all in one file right now)
 - styling (responsive)
-- show a '+' on positive modifiers
 - usability improvements
     - convey to user that incr/decr not allowed because score is at min/max allowed value
     - convey to user that incr/decr not allowed because of insufficient points
