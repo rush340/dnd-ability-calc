@@ -16,15 +16,17 @@ const COST_TABLE = {
 };
 
 const STR = 'strength';
-const CON = 'constitution';
 const DEX = 'dexterity';
+const CON = 'constitution';
 const INT = 'intelligence';
 const WIS = 'wisdom';
 const CHA = 'charisma';
+
+// order matches character sheet
 const ABILITIES = [
   STR,
-  CON,
   DEX,
+  CON,
   INT,
   WIS,
   CHA,
