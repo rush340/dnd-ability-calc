@@ -2,11 +2,9 @@
 
 An ability score Point Buy calculator for character creation in Dungeons & Dragons 5th edition.
 
-Currently a work in progress.
-
 Try it out it [here](https://rush340.github.io/dnd-ability-calc)
 
-I plan to add a feature for defining extended point buy tables such that a DM can send a link to the calculator configured with their own custom table to their players.
+I'm not a huge fan of the standard Point Buy rules because it's so much more restrictive than rolling. I hope to add a feature for defining custom point buy costs (with optionally different upper/lower limits) such that a DM can send a link to the calculator with their own configuration to their players.
 
 
 ## TODO
