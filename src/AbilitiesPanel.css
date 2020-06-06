@@ -5,6 +5,7 @@
 }
 
 .ability {
+  width: calc(100% - 10px);
   padding-right: 10px;
   padding-bottom: 10px;
 }
@@ -16,18 +17,23 @@
 .ability-change-control {
   width: 50%;
   height: 50px;
+  margin-top: 3px;
 }
 
 .ability table {
+  width: 100%;
   border: 0;
+  border-spacing: 0;
 }
 
 .ability th {
+  padding: 0;
   font-weight: normal;
   text-align: left;
 }
+
 .ability td {
+  padding: 0;
   font-weight: bold;
   text-align: right;
 }
-
