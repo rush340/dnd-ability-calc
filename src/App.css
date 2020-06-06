@@ -10,9 +10,10 @@
 }
 
 .points-container {
+  text-align: center;
   margin-bottom: 10px;
 }
 
 .points {
-  font-size: 2em;
+  font-size: 1.7em;
 }
