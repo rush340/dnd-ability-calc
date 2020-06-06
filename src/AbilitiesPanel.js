@@ -23,7 +23,7 @@ function AbilityChangeControl(props) {
 }
 
 AbilityChangeControl.propTypes = {
-  cost: PropTypes.number,
+  increase: PropTypes.bool,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
 };
