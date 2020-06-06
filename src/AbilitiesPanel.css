@@ -17,12 +17,14 @@
 
 .ability-change-control {
   -webkit-appearance: none;
+  text-align: center;
   font-size: 2em;
   font-weight: bold;
   padding-bottom: 4px;
-  margin: 2px;
   width: calc(50% - 4px);
+  padding: 0;
   height: 50px;
+  margin: 2px;
   margin-top: 4px;
   border-radius: 8px;
 }
