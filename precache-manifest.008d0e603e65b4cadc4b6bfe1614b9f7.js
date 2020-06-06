@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a7e83c9f189f6f72970080a183029b37",
+    "revision": "abcebf46650826cbc770fc0e543c40f4",
     "url": "/dnd-ability-calc/index.html"
   },
   {
-    "revision": "a5df472762635dbd4bed",
-    "url": "/dnd-ability-calc/static/css/main.53be6b1f.chunk.css"
+    "revision": "e741def313cb9699f136",
+    "url": "/dnd-ability-calc/static/css/main.f720e943.chunk.css"
   },
   {
     "revision": "7118a49b9457976c3bb4",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dnd-ability-calc/static/js/2.2bb54c66.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a5df472762635dbd4bed",
+    "revision": "e741def313cb9699f136",
     "url": "/dnd-ability-calc/static/js/main.41811f3e.chunk.js"
   },
   {
