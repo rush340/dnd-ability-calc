@@ -9,26 +9,6 @@
   margin: 0 0 10px 0;
 }
 
-.abilities-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 100px);
-  justify-items: left;
-}
-
-.ability {
-  padding-right: 10px;
-  padding-bottom: 10px;
-}
-
-.ability-name {
-  text-transform: capitalize;
-}
-
-.ability-change-control button {
-  width: 90px;
-  height: 55px;
-}
-
 .points-container {
   margin-bottom: 10px;
 }
