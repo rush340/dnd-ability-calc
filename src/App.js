@@ -1,49 +1,13 @@
 // TODO refactor
 
 import React from 'react';
+import {
+  SCORE_COSTS,
+  DEFAULT_INITIAL_POINTS,
+  INITIAL_ABILITY_SCORES,
+  getAbilityModifierString
+} from './abilities.js';
 import './App.css';
-
-
-const COST_TABLE = {
-  8: 0,
-  9: 1,
-  10: 2,
-  11: 3,
-  12: 4,
-  13: 5,
-  14: 7,
-  15: 9,
-};
-
-const STR = 'strength';
-const DEX = 'dexterity';
-const CON = 'constitution';
-const INT = 'intelligence';
-const WIS = 'wisdom';
-const CHA = 'charisma';
-
-// order matches character sheet
-const ABILITIES = [
-  STR,
-  DEX,
-  CON,
-  INT,
-  WIS,
-  CHA,
-];
-
-const INITIAL_ABILITY_SCORES = {};
-for (const ability of ABILITIES) {
-  INITIAL_ABILITY_SCORES[ability] = 8
-}
-
-// defualt number of points to start with
-const DEFAULT_INITIAL_POINTS = 27;
-
-
-function getAbilityModifier(score) {
-  return Math.floor(score / 2) - 5;
-}
 
 
 function AbilityChangeControl(props) {
@@ -66,12 +30,6 @@ function AbilityChangeControl(props) {
       </button>
     </div>
   );
-}
-
-function getAbilityModifierString(score) {
-  const modifier = getAbilityModifier(score);
-  const plusOrMinus = modifier >= 0 ? '+' : '-';
-  return `${plusOrMinus}${Math.abs(modifier)}`;
 }
 
 function Ability(props) {
@@ -103,12 +61,12 @@ function Abilities(props) {
     const increaseClick = () => props.increaseAbility(ability);
     const decreaseClick = () => props.decreaseAbility(ability);
 
-    const increaseCost = COST_TABLE[score + 1] === undefined ?
+    const increaseCost = SCORE_COSTS[score + 1] === undefined ?
       null :
-      COST_TABLE[score + 1] - COST_TABLE[score];
-    const decreaseCost = COST_TABLE[score - 1] === undefined ?
+      SCORE_COSTS[score + 1] - SCORE_COSTS[score];
+    const decreaseCost = SCORE_COSTS[score - 1] === undefined ?
       null :
-      COST_TABLE[score - 1] - COST_TABLE[score];
+      SCORE_COSTS[score - 1] - SCORE_COSTS[score];
     abilities.push(<Ability
       key={ability}
       name={ability}
@@ -156,12 +114,12 @@ class App extends React.Component {
     const oldValue = this.state.abilities[ability];
     const newValue = oldValue + value;
 
-    if (COST_TABLE[newValue] === undefined) {
+    if (SCORE_COSTS[newValue] === undefined) {
       // the new value is not allowed
       return;
     }
 
-    const changeCost = COST_TABLE[newValue] - COST_TABLE[oldValue];
+    const changeCost = SCORE_COSTS[newValue] - SCORE_COSTS[oldValue];
     if (changeCost > this.state.points) {
       // there are not enough points remaining for this change
       return;
