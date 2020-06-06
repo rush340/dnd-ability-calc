@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/dnd-ability-calc/static/css/main.ea19a6f3.chunk.css",
+    "main.css": "/dnd-ability-calc/static/css/main.53be6b1f.chunk.css",
     "main.js": "/dnd-ability-calc/static/js/main.41811f3e.chunk.js",
     "main.js.map": "/dnd-ability-calc/static/js/main.41811f3e.chunk.js.map",
     "runtime-main.js": "/dnd-ability-calc/static/js/runtime-main.c4e589c8.js",
@@ -8,15 +8,15 @@
     "static/js/2.2bb54c66.chunk.js": "/dnd-ability-calc/static/js/2.2bb54c66.chunk.js",
     "static/js/2.2bb54c66.chunk.js.map": "/dnd-ability-calc/static/js/2.2bb54c66.chunk.js.map",
     "index.html": "/dnd-ability-calc/index.html",
-    "precache-manifest.013be847a8e6423b3a11d3ac3d8b58e9.js": "/dnd-ability-calc/precache-manifest.013be847a8e6423b3a11d3ac3d8b58e9.js",
+    "precache-manifest.3579dfa5bbe1a19d1f83f90d9d0031f3.js": "/dnd-ability-calc/precache-manifest.3579dfa5bbe1a19d1f83f90d9d0031f3.js",
     "service-worker.js": "/dnd-ability-calc/service-worker.js",
-    "static/css/main.ea19a6f3.chunk.css.map": "/dnd-ability-calc/static/css/main.ea19a6f3.chunk.css.map",
+    "static/css/main.53be6b1f.chunk.css.map": "/dnd-ability-calc/static/css/main.53be6b1f.chunk.css.map",
     "static/js/2.2bb54c66.chunk.js.LICENSE.txt": "/dnd-ability-calc/static/js/2.2bb54c66.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c4e589c8.js",
     "static/js/2.2bb54c66.chunk.js",
-    "static/css/main.ea19a6f3.chunk.css",
+    "static/css/main.53be6b1f.chunk.css",
     "static/js/main.41811f3e.chunk.js"
   ]
 }
