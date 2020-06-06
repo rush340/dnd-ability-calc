@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   SCORE_COSTS,
   getAbilityModifierString
@@ -28,6 +30,12 @@ function AbilityChangeControl(props) {
   );
 }
 
+AbilityChangeControl.propTypes = {
+  cost: PropTypes.number,
+  onClick: PropTypes.func,
+  disabled: PropTypes.bool,
+};
+
 function AbilityDisplay(props) {
   const modifier = getAbilityModifierString(props.score);
   return (
@@ -50,6 +58,17 @@ function AbilityDisplay(props) {
     </div>
   );
 }
+
+AbilityDisplay.propTypes = {
+  name: PropTypes.string,
+  score: PropTypes.number,
+  increaseClick: PropTypes.func,
+  increaseCost: PropTypes.number,
+  canIncrease: PropTypes.bool,
+  decreaseClick: PropTypes.func,
+  decreaseCost: PropTypes.number,
+  canDecrease: PropTypes.bool,
+};
 
 function AbilitiesPanel(props) {
   const abilities = [];
@@ -82,5 +101,12 @@ function AbilitiesPanel(props) {
     </div>
   );
 }
+
+AbilitiesPanel.propTypes = {
+  abilityScores: PropTypes.objectOf(PropTypes.number),
+  points: PropTypes.number,
+  increaseAbility: PropTypes.func,
+  decreaseAbility: PropTypes.func,
+};
 
 export default AbilitiesPanel;

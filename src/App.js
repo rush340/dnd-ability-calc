@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   SCORE_COSTS,
   DEFAULT_INITIAL_POINTS,
@@ -15,6 +17,11 @@ function RemainingPointsDisplay(props) {
       <div className="points">{props.remaining} / {props.max}</div>
     </div>
   );
+}
+
+RemainingPointsDisplay.propTypes = {
+  remaining: PropTypes.number,
+  max: PropTypes.number,
 }
 
 class App extends React.Component {
