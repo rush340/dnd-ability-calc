@@ -9,24 +9,16 @@ import './AbilitiesPanel.css';
 
 
 function AbilityChangeControl(props) {
-  const label = props.increase ? 'Increase' : 'Decrease';
+  const label = props.increase ? '+' : '-';
 
-  // we show a minus for positive costs because we're conveying the effect
-  // on the remaining point value
-  const plusOrMinus = props.cost >= 0 ? '-' : '+';
-  const costLabel = props.disabled ?
-    '' :
-    `(${plusOrMinus}${Math.abs(props.cost)} point${Math.abs(props.cost) > 1 ? 's' : ''})`;
   return (
-    <div className="ability-change-control">
-      <button
-        onClick={props.onClick}
-        disabled={props.disabled}
-      >
-        {label}<br />
-        {costLabel}
-      </button>
-    </div>
+    <button
+      className="ability-change-control"
+      onClick={props.onClick}
+      disabled={props.disabled}
+    >
+      {label}
+    </button>
   );
 }
 
@@ -38,22 +30,41 @@ AbilityChangeControl.propTypes = {
 
 function AbilityDisplay(props) {
   const modifier = getAbilityModifierString(props.score);
+
+  // we show a minus for positive costs because we're conveying the effect
+  // on the remaining point value
+  const cost = SCORE_COSTS[props.score];
+  const costPlusOrMinus = cost >= 0 ? '-' : '+';
+  const costLabel = `${costPlusOrMinus}${cost}`;
+
   return (
     <div className="ability">
       <div className="ability-name"><strong>{props.name}</strong></div>
-      <div>Score: {props.score}</div>
-      <div>Modifier: {modifier}</div>
-      <AbilityChangeControl
-        increase={true}
-        onClick={props.increaseClick}
-        cost={props.increaseCost}
-        disabled={!props.canIncrease}
-      />
+      <table>
+        <tr>
+          <th>Score:</th>
+          <td>{props.score}</td>
+        </tr>
+        <tr>
+          <th>Modifier:</th>
+          <td>{modifier}</td>
+        </tr>
+        <tr>
+          <th>Points:</th>
+          <td>{costLabel}</td>
+        </tr>
+      </table>
       <AbilityChangeControl
         increase={false}
         onClick={props.decreaseClick}
         cost={props.decreaseCost}
         disabled={!props.canDecrease}
+      />
+      <AbilityChangeControl
+        increase={true}
+        onClick={props.increaseClick}
+        cost={props.increaseCost}
+        disabled={!props.canIncrease}
       />
     </div>
   );

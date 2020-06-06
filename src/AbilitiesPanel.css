@@ -13,7 +13,21 @@
   text-transform: capitalize;
 }
 
-.ability-change-control button {
-  width: 90px;
-  height: 55px;
+.ability-change-control {
+  width: 50%;
+  height: 50px;
 }
+
+.ability table {
+  border: 0;
+}
+
+.ability th {
+  font-weight: normal;
+  text-align: left;
+}
+.ability td {
+  font-weight: bold;
+  text-align: right;
+}
+
