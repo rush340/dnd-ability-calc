@@ -29,6 +29,15 @@
   border-radius: 8px;
 }
 
+.ability-change-control:enabled {
+  background-color: #fff;
+}
+
+.ability-change-control:disabled {
+  background-color: #eee;
+}
+
+
 .ability table {
   margin: 0 auto;
   border: 0;
